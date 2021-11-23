@@ -54,4 +54,9 @@ In order to implement least privileges best practices, IAM users should not be a
     subject { iam_bindings_cache.iam_bindings['roles/iam.serviceAccountUser'] }
     it { should eq nil }
   end
+  
+   describe "[#{gcp_project_id}] A project-level binding of ServiceAccountTokenCreator" do
+    subject { iam_bindings_cache.iam_bindings['roles/iam.serviceAccountTokenCreator'] }
+    it { should eq nil }
+  end
 end
