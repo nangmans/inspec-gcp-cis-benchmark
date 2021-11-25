@@ -41,7 +41,7 @@ At least business critical VMs should have VM disks encrypted with CSEK."
   tag cis_level: 2
   tag cis_gcp: control_id.to_s
   tag cis_version: cis_version.to_s
-  tag project: gcp_project_id.to_s
+  tag project: gcp_project_id.to_szt
   tag nist: ['SC-1']
 
   ref 'CIS Benchmark', url: cis_url.to_s
