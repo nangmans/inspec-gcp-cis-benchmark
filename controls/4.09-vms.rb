@@ -50,7 +50,7 @@ address#unassign_ip'
   gce_instances.each do |instance|
     describe "[#{gcp_project_id}] Instance #{instance[:zone]}/#{instance[:name]}" do
     subject {google_compute_instance(project: gcp_project_id, zone: instance[:zone], name: instance[:name])}
-    its {'network_interfaces'} { should include 'access_configs'}
+    its {'network_interfaces'} { should include 'access_configs' }
     end
   end
 end
