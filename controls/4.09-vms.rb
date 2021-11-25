@@ -50,7 +50,7 @@ address#unassign_ip'
   gce_instances.each do |instance|
     instance_object = google_compute_instance(project: gcp_project_id, zone: instance[:zone], name: instance[:name])
     describe "[#{gcp_project_id}] Instance #{instance[:zone]}/#{instance[:name]}" do
-      if instance_object.network_interfaces_access_configs.nil?
+      if instance_object.first_network_interface_nat_ip.nil?
         it 'should have a accessConfigs' do
           expect(true).to be false
         end
