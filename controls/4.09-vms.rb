@@ -50,7 +50,7 @@ address#unassign_ip'
   gce_instances.each do |instance|
     describe "[#{gcp_project_id}] Instance #{instance[:zone]}/#{instance[:name]}" do
     subject {google_compute_instance(project: gcp_project_id, zone: instance[:zone], name: instance[:name])}
-    its ('network_interfaces(0)') { should match '@access_configs=nil' }
+    its ('first_network_interface_nat_ip_exists') { should be true }
     end
   end
 end
